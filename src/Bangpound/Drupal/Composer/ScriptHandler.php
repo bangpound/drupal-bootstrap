@@ -63,6 +63,9 @@ class ScriptHandler
             $dirs = array_filter(self::$subdir_paths, 'file_exists');
             $generator->dump($dirs, 'classmap.php');
             chdir($cwd);
+            if (!empty($options['drupal-root'])) {
+                chdir($options['drupal-root']);
+            }
         }
     }
 
