@@ -67,6 +67,7 @@ class ScriptHandler
                 chdir($options['drupal-root']);
             }
         }
+        chdir($cwd);
     }
 
     protected static function getOptions(Event $event)
