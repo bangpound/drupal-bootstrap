@@ -12,7 +12,10 @@
         "psr-0": {
             "Bangpound\\Drupal\\": "src/",
             "Drupal\\Core\\": "src/"
-        }
+        },
+        "files": [
+            "src/Bangpound/Drupal/override_functions.php"
+        ]
     },
     "license": "GPL-2.0",
     "authors": [
