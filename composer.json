@@ -3,7 +3,8 @@
     "description": "Drupal 7 bootstrap replacement",
     "require": {
         "pimple/pimple": "~1.1",
-        "symfony/class-loader": "~2.4"
+        "symfony/class-loader": "~2.4",
+        "guzzle/guzzle": "~3.8"
     },
     "require-dev": {
         "composer/composer": "1.0.*@dev"
