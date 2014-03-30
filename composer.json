@@ -3,33 +3,15 @@
     "description": "Drupal 7 bootstrap replacement",
     "repositories": [
         {
-            "type": "package",
-            "package": {
-                "name": "drupal/drupal",
-                "version": "7.26",
-                "dist": {
-                    "url": "http://ftp.drupal.org/files/projects/drupal-7.26.tar.gz",
-                    "type": "tar"
-                },
-                "source": {
-                    "url": "http://git.drupal.org/project/drupal.git",
-                    "type": "git",
-                    "reference": "7.x-dev"
-                },
-                "autoload": {
-                    "classmap": [
-                        "authorize.php", "cron.php", "includes/", "index.php", "install.php", "modules/",
-                        "profiles/", "sites/", "themes/", "update.php", "xmlrpc.php"
-                    ]
-                }
-            }
+            "type": "composer",
+            "url": "http://drufony.github.io"
         }
     ],
     "require": {
         "pimple/pimple": "~1.1"
     },
     "require-dev": {
-        "drupal/drupal": "7.*@dev"
+        "drupal/drupal": "dev-7.x-pimple"
     },
     "autoload": {
         "psr-0": {
