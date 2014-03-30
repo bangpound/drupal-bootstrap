@@ -9,7 +9,6 @@ namespace Drupal\Core\Tests;
 class BootstrapTest extends \PHPUnit_Framework_TestCase
 {
     private $object;
-    private $site;
 
     /**
      * @see http://heyrocker.com/content/installing-drupal-7-non-interactively
