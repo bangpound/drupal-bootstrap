@@ -15,6 +15,7 @@ class ClassMapGenerator extends BaseGenerator
 
     /**
      * {@inheritdoc}
+     * @param string $file
      */
     public static function dump($dirs, $file)
     {
