@@ -8,6 +8,10 @@ namespace Drupal\Core;
  */
 class Bootstrap extends \Pimple implements BootstrapInterface
 {
+    public function __construct()
+    {
+        parent::__construct(BootstrapPhases::get());
+    }
 
     /**
      * @param  null  $phase     Phase
