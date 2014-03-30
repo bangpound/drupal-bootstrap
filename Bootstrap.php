@@ -6,7 +6,7 @@ namespace Drupal\Core;
  * Class Bootstrap
  * @package Drupal\Core
  */
-class Bootstrap extends \Pimple
+class Bootstrap extends \Pimple implements BootstrapInterface
 {
     /**
      * Instantiate the container.
@@ -82,7 +82,7 @@ class Bootstrap extends \Pimple
         // Not drupal_static(), because does not depend on any run-time information.
         static $phases;
         if (!isset($phases)) {
-            $phases = $this['phases'];
+            $phases = $this->getPhases();
         }
         // Not drupal_static(), because the only legitimate API to control this is to
         // call drupal_bootstrap() with a new phase parameter.
@@ -113,6 +113,14 @@ class Bootstrap extends \Pimple
         }
 
         return $stored_phase;
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function getPhases()
+    {
+        return $this['phases'];
     }
 
     /**
