@@ -1,17 +1,21 @@
 {
     "name": "bangpound/drupal-bootstrap",
     "description": "Drupal 7 bootstrap replacement",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://drufony.github.io"
+        }
+    ],
     "require": {
-        "pimple/pimple": "~1.1",
-        "symfony/class-loader": "~2.4"
+        "pimple/pimple": "~1.1"
     },
     "require-dev": {
-        "composer/composer": "1.0.*@dev"
+        "drupal/drupal": "dev-7.x-pimple"
     },
     "autoload": {
-        "psr-0": {
-            "Bangpound\\Drupal\\": "src/",
-            "Drupal\\Core\\": "src/"
+        "psr-4": {
+            "Drupal\\Core\\": ""
         }
     },
     "license": "GPL-2.0",
@@ -23,7 +27,8 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "1.0.x-dev",
+            "dev-develop": "1.1.x-dev"
         }
     }
 }
