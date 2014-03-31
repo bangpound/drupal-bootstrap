@@ -6,8 +6,9 @@ namespace Drupal\Core;
  * Class BootstrapPhases
  * @package Drupal\Core
  */
-class BootstrapPhases implements \ArrayAccess
+final class BootstrapPhases implements \ArrayAccess
 {
+    /** @see Bootstrap::__construct() */
     const NEVER_STARTED = -1;
     const CONFIGURATION = 0;
     const PAGE_CACHE    = 1;
@@ -20,32 +21,35 @@ class BootstrapPhases implements \ArrayAccess
 
     private $values;
 
+    /**
+     *
+     */
     public function __construct()
     {
         $this->values = array(
-            self::CONFIGURATION => function () {
+            $this::CONFIGURATION => function () {
                     _drupal_bootstrap_configuration();
                 },
-            self::PAGE_CACHE => function () {
+            $this::PAGE_CACHE => function () {
                     _drupal_bootstrap_page_cache();
                 },
-            self::DATABASE => function () {
+            $this::DATABASE => function () {
                     _drupal_bootstrap_database();
                 },
-            self::VARIABLES => function () {
+            $this::VARIABLES => function () {
                     _drupal_bootstrap_variables();
                 },
-            self::SESSION => function () {
+            $this::SESSION => function () {
                     require_once DRUPAL_ROOT . '/' . variable_get('session_inc', 'includes/session.inc');
                     drupal_session_initialize();
                 },
-            self::PAGE_HEADER => function () {
+            $this::PAGE_HEADER => function () {
                     _drupal_bootstrap_page_header();
                 },
-            self::LANGUAGE => function () {
+            $this::LANGUAGE => function () {
                     drupal_language_initialize();
                 },
-            self::FULL => function () {
+            $this::FULL => function () {
                     require_once DRUPAL_ROOT . '/includes/common.inc';
                     _drupal_bootstrap_full();
                 },
@@ -81,8 +85,13 @@ class BootstrapPhases implements \ArrayAccess
      *
      * @return array An array of value names
      */
-    public function keys()
+    static function getPhases()
     {
-        return array_keys($this->values);
+        return range(self::CONFIGURATION, self::FULL);
+    }
+
+    public function all()
+    {
+        return $this->values;
     }
 }
