@@ -16,7 +16,7 @@ class Bootstrap extends AbstractBootstrap
     public function __construct($values = array())
     {
         array_walk($values, function ($callback) {
-            return \Pimple::sleep($callback);
+            return \Pimple::share($callback);
         }, $values);
         $this->c = new \Pimple($values);
     }
