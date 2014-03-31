@@ -62,7 +62,7 @@ class Bootstrap extends \Pimple implements BootstrapInterface
     }
 
     /**
-     * @return mixed
+     * @return array An array of phase names
      */
     protected function getPhases()
     {

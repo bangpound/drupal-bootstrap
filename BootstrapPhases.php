@@ -2,6 +2,10 @@
 
 namespace Drupal\Core;
 
+/**
+ * Class BootstrapPhases
+ * @package Drupal\Core
+ */
 class BootstrapPhases
 {
     public static function get()
