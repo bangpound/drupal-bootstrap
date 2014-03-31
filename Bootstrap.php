@@ -10,7 +10,10 @@ class Bootstrap extends \Pimple implements BootstrapInterface
 {
     public function __construct()
     {
-        parent::__construct(BootstrapPhases::get());
+        $phases = new BootstrapPhases();
+        foreach ($phases->keys() as $key) {
+            $this->values[$key] = $this->share($phases[$key]);
+        }
     }
 
     /**
