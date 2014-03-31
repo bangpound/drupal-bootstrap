@@ -70,6 +70,6 @@ class BootstrapPhasesTest extends \PHPUnit_Framework_TestCase
      * @covers Drupal\Core\BootstrapPhases::keys
      */
     public function testKeys()
-    {   $this->assertInternalType('array', $this->object->keys());
+    {   $this->assertInternalType('array', $this->object->getPhases());
     }
 }
