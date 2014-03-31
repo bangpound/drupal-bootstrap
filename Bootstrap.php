@@ -15,10 +15,10 @@ class Bootstrap extends AbstractBootstrap
 
     public function __construct($values = array())
     {
-        $this->c = new \Pimple();
-        foreach ($values as $key => $value) {
-            $this->c[$key] = $this->c->share($value);
-        }
+        array_walk($values, function ($callback) {
+            return \Pimple::sleep($callback);
+        }, $values);
+        $this->c = new \Pimple($values);
     }
 
     /**
