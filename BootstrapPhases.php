@@ -26,34 +26,7 @@ final class BootstrapPhases implements \ArrayAccess
      */
     public function __construct()
     {
-        $this->values = array(
-            $this::CONFIGURATION => function () {
-                    _drupal_bootstrap_configuration();
-                },
-            $this::PAGE_CACHE => function () {
-                    _drupal_bootstrap_page_cache();
-                },
-            $this::DATABASE => function () {
-                    _drupal_bootstrap_database();
-                },
-            $this::VARIABLES => function () {
-                    _drupal_bootstrap_variables();
-                },
-            $this::SESSION => function () {
-                    require_once DRUPAL_ROOT . '/' . variable_get('session_inc', 'includes/session.inc');
-                    drupal_session_initialize();
-                },
-            $this::PAGE_HEADER => function () {
-                    _drupal_bootstrap_page_header();
-                },
-            $this::LANGUAGE => function () {
-                    drupal_language_initialize();
-                },
-            $this::FULL => function () {
-                    require_once DRUPAL_ROOT . '/includes/common.inc';
-                    _drupal_bootstrap_full();
-                },
-        );
+        $this->values = self::all();
     }
 
     public function offsetExists($id)
@@ -85,13 +58,40 @@ final class BootstrapPhases implements \ArrayAccess
      *
      * @return array An array of value names
      */
-    static function getPhases()
+    public static function getPhases()
     {
         return range(self::CONFIGURATION, self::FULL);
     }
 
-    public function all()
+    public static function all()
     {
-        return $this->values;
+        return array(
+                self::CONFIGURATION => function () {
+                        _drupal_bootstrap_configuration();
+                    },
+                self::PAGE_CACHE => function () {
+                        _drupal_bootstrap_page_cache();
+                    },
+                self::DATABASE => function () {
+                        _drupal_bootstrap_database();
+                    },
+                self::VARIABLES => function () {
+                        _drupal_bootstrap_variables();
+                    },
+                self::SESSION => function () {
+                        require_once DRUPAL_ROOT . '/' . variable_get('session_inc', 'includes/session.inc');
+                        drupal_session_initialize();
+                    },
+                self::PAGE_HEADER => function () {
+                        _drupal_bootstrap_page_header();
+                    },
+                self::LANGUAGE => function () {
+                        drupal_language_initialize();
+                    },
+                self::FULL => function () {
+                        require_once DRUPAL_ROOT . '/includes/common.inc';
+                        _drupal_bootstrap_full();
+                    },
+            );
     }
 }
