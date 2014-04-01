@@ -54,7 +54,7 @@ abstract class AbstractBootstrap implements BootstrapInterface
     }
 
     /**
-     * @return array
+     * @return array An array of phase names
      */
     abstract protected function getPhases();
 
