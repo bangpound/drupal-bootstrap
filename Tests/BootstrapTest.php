@@ -13,7 +13,7 @@ use Drupal\Core\Bootstrap;
 class BootstrapTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var Bootstrap
+     * @var TestBootstrap
      */
     protected $object;
 
