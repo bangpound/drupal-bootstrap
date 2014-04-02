@@ -65,11 +65,4 @@ class BootstrapPhasesTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('InvalidArgumentException');
         unset($this->object[3]);
     }
-
-    /**
-     * @covers Drupal\Core\BootstrapPhases::keys
-     */
-    public function testKeys()
-    {   $this->assertInternalType('array', $this->object->getPhases());
-    }
 }

@@ -18,10 +18,16 @@ abstract class AbstractBootstrap implements BootstrapInterface
     public function __invoke($phase = NULL, $new_phase = TRUE)
     {
         // Not drupal_static(), because does not depend on any run-time information.
-        static $phases;
-        if (!isset($phases)) {
-            $phases = $this->getPhases();
-        }
+        static $phases = array(
+            DRUPAL_BOOTSTRAP_CONFIGURATION,
+            DRUPAL_BOOTSTRAP_PAGE_CACHE,
+            DRUPAL_BOOTSTRAP_DATABASE,
+            DRUPAL_BOOTSTRAP_VARIABLES,
+            DRUPAL_BOOTSTRAP_SESSION,
+            DRUPAL_BOOTSTRAP_PAGE_HEADER,
+            DRUPAL_BOOTSTRAP_LANGUAGE,
+            DRUPAL_BOOTSTRAP_FULL,
+        );
         // Not drupal_static(), because the only legitimate API to control this is to
         // call drupal_bootstrap() with a new phase parameter.
         static $final_phase;
@@ -52,11 +58,6 @@ abstract class AbstractBootstrap implements BootstrapInterface
 
         return $stored_phase;
     }
-
-    /**
-     * @return array An array of phase names
-     */
-    abstract protected function getPhases();
 
     /**
      * @param $phase

@@ -36,12 +36,4 @@ class Bootstrap extends AbstractBootstrap
     {
         $this->c[$phase];
     }
-
-    /**
-     * @return array An array of phase names
-     */
-    protected function getPhases()
-    {
-        return $this->c->keys();
-    }
 }
