@@ -11,7 +11,7 @@ class Bootstrap extends AbstractBootstrap
     /**
      * @var \Pimple
      */
-    private $c;
+    protected $c;
 
     public function __construct($values = array())
     {
