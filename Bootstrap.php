@@ -11,7 +11,7 @@ class Bootstrap extends AbstractBootstrap
     /**
      * @var \Pimple
      */
-    private $c;
+    protected $c;
 
     public function __construct($values = array())
     {
@@ -35,13 +35,5 @@ class Bootstrap extends AbstractBootstrap
     protected function call($phase = NULL)
     {
         $this->c[$phase];
-    }
-
-    /**
-     * @return array An array of phase names
-     */
-    protected function getPhases()
-    {
-        return $this->c->keys();
     }
 }

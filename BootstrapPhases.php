@@ -53,16 +53,6 @@ final class BootstrapPhases implements \ArrayAccess
         throw new \InvalidArgumentException(sprintf('"%s" cannot be changed.', __CLASS__));
     }
 
-    /**
-     * Returns all defined value names.
-     *
-     * @return array An array of value names
-     */
-    public static function getPhases()
-    {
-        return range(self::CONFIGURATION, self::FULL);
-    }
-
     public static function all()
     {
         return array(

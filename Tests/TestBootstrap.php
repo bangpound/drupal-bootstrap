@@ -33,14 +33,6 @@ class TestBootstrap extends AbstractBootstrap
     }
 
     /**
-     * @return array
-     */
-    protected function getPhases()
-    {
-        return array_keys($this->phases);
-    }
-
-    /**
      * @param $phase
      * @return mixed
      */
