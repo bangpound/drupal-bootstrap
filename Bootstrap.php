@@ -1,6 +1,7 @@
 <?php
 
 namespace Drupal\Core;
+use Pimple\Container;
 
 /**
  * Class Bootstrap
@@ -9,7 +10,7 @@ namespace Drupal\Core;
 class Bootstrap extends AbstractBootstrap
 {
     /**
-     * @var \Pimple
+     * @var Container
      */
     protected $c;
 
@@ -18,10 +19,7 @@ class Bootstrap extends AbstractBootstrap
         if (empty($values)) {
             $values = BootstrapPhases::all();
         }
-        array_walk($values, function ($callback) {
-            return \Pimple::share($callback);
-        }, $values);
-        $this->c = new \Pimple($values);
+        $this->c = new Container($values);
     }
 
     /**

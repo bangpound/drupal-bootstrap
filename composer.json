@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "pimple/pimple": "~1.1"
+        "pimple/pimple": "~3.0"
     },
     "require-dev": {
         "drupal/drupal": "dev-7.x-pimple"
