@@ -13,5 +13,5 @@ interface BootstrapInterface
      * @param  bool  $new_phase
      * @return mixed
      */
-    public function __invoke($phase = NULL, $new_phase = TRUE);
+    public function __invoke($phase = null, $new_phase = true);
 }

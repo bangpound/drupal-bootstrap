@@ -2,6 +2,8 @@
 
 namespace Drupal\Core;
 
+use Pimple\Container;
+
 /**
  * Class Bootstrap
  * @package Drupal\Core
@@ -9,19 +11,14 @@ namespace Drupal\Core;
 class Bootstrap extends AbstractBootstrap
 {
     /**
-     * @var \Pimple
+     * @var Container
      */
     protected $c;
 
     public function __construct($values = array())
     {
-        if (empty($values)) {
-            $values = BootstrapPhases::all();
-        }
-        array_walk($values, function ($callback) {
-            return \Pimple::share($callback);
-        }, $values);
-        $this->c = new \Pimple($values);
+        $this->c = new Container($values);
+        $this->c->register(new BootstrapServiceProvider());
     }
 
     /**
@@ -32,7 +29,7 @@ class Bootstrap extends AbstractBootstrap
      * @param  null       $phase Phase
      * @return mixed|void
      */
-    protected function call($phase = NULL)
+    protected function call($phase = null)
     {
         $this->c[$phase];
     }
