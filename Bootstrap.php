@@ -17,10 +17,8 @@ class Bootstrap extends AbstractBootstrap
 
     public function __construct($values = array())
     {
-        if (empty($values)) {
-            $values = BootstrapPhases::all();
-        }
         $this->c = new Container($values);
+        $this->c->register(new BootstrapServiceProvider());
     }
 
     /**
