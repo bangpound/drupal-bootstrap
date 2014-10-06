@@ -15,7 +15,7 @@ abstract class AbstractBootstrap implements BootstrapInterface
      *
      * @see drupal_bootstrap()
      */
-    public function __invoke($phase = NULL, $new_phase = TRUE)
+    public function __invoke($phase = null, $new_phase = true)
     {
         // Not drupal_static(), because does not depend on any run-time information.
         static $phases = array(

@@ -27,12 +27,12 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
     {
         $this->object = new Bootstrap();
 
-        define('DRUPAL_ROOT', realpath(getcwd() .'/vendor/drupal/drupal'));
-        require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
+        define('DRUPAL_ROOT', realpath(getcwd().'/vendor/drupal/drupal'));
+        require_once DRUPAL_ROOT.'/includes/bootstrap.inc';
 
         $this->object = new TestBootstrap();
 
-        drupal_bootstrap(NULL, TRUE, $this->object);
+        drupal_bootstrap(null, true, $this->object);
     }
 
     /**

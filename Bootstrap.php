@@ -1,6 +1,7 @@
 <?php
 
 namespace Drupal\Core;
+
 use Pimple\Container;
 
 /**
@@ -30,7 +31,7 @@ class Bootstrap extends AbstractBootstrap
      * @param  null       $phase Phase
      * @return mixed|void
      */
-    protected function call($phase = NULL)
+    protected function call($phase = null)
     {
         $this->c[$phase];
     }

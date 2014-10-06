@@ -69,7 +69,7 @@ final class BootstrapPhases implements \ArrayAccess
                         _drupal_bootstrap_variables();
                     },
                 self::SESSION => function () {
-                        require_once DRUPAL_ROOT . '/' . variable_get('session_inc', 'includes/session.inc');
+                        require_once DRUPAL_ROOT.'/'.variable_get('session_inc', 'includes/session.inc');
                         drupal_session_initialize();
                     },
                 self::PAGE_HEADER => function () {
@@ -79,7 +79,7 @@ final class BootstrapPhases implements \ArrayAccess
                         drupal_language_initialize();
                     },
                 self::FULL => function () {
-                        require_once DRUPAL_ROOT . '/includes/common.inc';
+                        require_once DRUPAL_ROOT.'/includes/common.inc';
                         _drupal_bootstrap_full();
                     },
             );
