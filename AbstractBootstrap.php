@@ -60,8 +60,10 @@ abstract class AbstractBootstrap implements BootstrapInterface
     }
 
     /**
-     * @param $phase
-     * @return mixed
+     * Calls the bootstrap phase.
+     *
+     * @param  null $phase DRUPAL_BOOTSTRAP phase constant
+     * @return int
      */
     abstract protected function call($phase);
 }
