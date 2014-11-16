@@ -35,12 +35,13 @@ abstract class AbstractBootstrap implements BootstrapInterface
         // bootstrap state.
         static $stored_phase = -1;
 
-        // When not recursing, store the phase name so it's not forgotten while
-        // recursing.
-        if ($new_phase) {
-            $final_phase = $phase;
-        }
         if (isset($phase)) {
+            // When not recursing, store the phase name so it's not forgotten while
+            // recursing but take care of not going backwards.
+            if ($new_phase && $phase >= $stored_phase) {
+                $final_phase = $phase;
+            }
+
             // Call a phase if it has not been called before and is below the requested
             // phase.
             while ($phases && $phase > $stored_phase && $final_phase > $stored_phase) {
