@@ -11,6 +11,9 @@ use Pimple\ServiceProviderInterface;
  */
 class BootstrapServiceProvider implements ServiceProviderInterface
 {
+    /**
+     * {@inheritdoc}
+     */
     public function register(Container $pimple)
     {
         $pimple[DRUPAL_BOOTSTRAP_CONFIGURATION] = function () {
