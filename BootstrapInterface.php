@@ -9,9 +9,7 @@ namespace Drupal\Core;
 interface BootstrapInterface
 {
     /**
-     * @param  null  $phase
-     * @param  bool  $new_phase
-     * @return mixed
+     * @param $current_phase
      */
-    public function __invoke($phase = null, $new_phase = true);
+    public function __invoke($current_phase);
 }
