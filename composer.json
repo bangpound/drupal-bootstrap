@@ -6,11 +6,6 @@
             "Drupal\\Core\\": ""
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Drupal\\Core\\Tests\\": "Tests/"
-        }
-    },
     "license": "GPL-2.0",
     "authors": [
         {
